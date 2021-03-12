@@ -1,13 +1,12 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Text, Button } from 'react-native-elements'
 
 import Slides from '../components/Slides'
 
 const slide_data = [
-    { text: 'Welcome to JobApp', color: '#03a9f4' },
-    { text: 'Use this to get a job', color: '#009688' },
-    { text: 'Set your location, and swipe away', color: '#03a9f4' },
+    { id: 1, text: 'Welcome to JobApp', color: '#03a9f4' },
+    { id: 2, text: 'Use this to get a job', color: '#009688' },
+    { id: 3, text: 'Set your location, and swipe away', color: '#03a9f4' },
 ]
 
 const WelcomeScreen = ({ navigation }) => {

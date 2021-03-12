@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Dimensions, ScrollView, StyleSheet, View } from 'react-native'
 import { Button, Text } from 'react-native-elements'
 
@@ -7,10 +7,10 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 const Slides = ({ data, onFinish }) => {
     const lastIndex = data.length - 1
 
-    const renderSlides = () =>
-        data.map(({ text, color }, index) => (
+    const renderSlides = useCallback(() => {
+        return data.map(({ color, id, text }, index) => (
             <View
-                key={text}
+                key={id}
                 style={[
                     styles.slide,
                     { backgroundColor: color || 'dodgerblue' },
@@ -27,6 +27,7 @@ const Slides = ({ data, onFinish }) => {
                 ) : null}
             </View>
         ))
+    }, [data])
 
     return (
         <ScrollView
