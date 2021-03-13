@@ -3,6 +3,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { Provider } from 'react-redux'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 import store from './src/store'
 import AuthScreen from './src/screens/AuthScreen'
@@ -32,9 +33,11 @@ const navigator = createSwitchNavigator({
 const MainNavigator = createAppContainer(navigator)
 
 const App = () => (
-    <Provider store={store}>
-        <MainNavigator />
-    </Provider>
+    <SafeAreaProvider>
+        <Provider store={store}>
+            <MainNavigator />
+        </Provider>
+    </SafeAreaProvider>
 )
 
 export default App
